@@ -1,0 +1,3 @@
+[submodule "ntupledicts"]
+	path = ntupledicts
+	url = https://github.com/cqpancoast/ntupledicts.git
