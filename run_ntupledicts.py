@@ -14,6 +14,7 @@ from tensorflow.keras.layers import Softmax
 from tensorflow.keras.layers import Dense
 
 
+
 # I/O global variables
 # input_files = ["eventsets/ZMM_PU200_D49.root",
 #     "eventsets/ZEE_PU200_D49.root",
@@ -70,13 +71,19 @@ def test(test_ds):
     """Use this function when testing samples or functionality rather
     than actually running stuff."""
 
-    # TODO test predictions against actual labels
-    for NN_pl, GBDT_pl, cuts_pl, real_label in zip(
-            test_ds.get_prediction("NN"),
-            test_ds.get_prediction("GBDT"),
-            test_ds.get_prediction("cuts"),
-            test_ds.get_labels()):
-        print(NN_pl, GBDT_pl, cuts_pl, real_label)
+    # TODO okay, labels work. Now, are TPR/FPR calculated accurately?
+
+    # Tensorflow labels and predictions
+    actual_labels = test_ds.get_labels()
+    model_pred_labels = test_ds.get_prediction("GBDT")
+    thresh_mpl = ndmlpred.apply_threshhold(model_pred_labels, .1)
+    cut_pred_labels = test_ds.get_prediction("cuts")
+
+    for labels in zip(actual_labels, model_pred_labels, thresh_mpl):
+        print(labels)
+
+    print(ndmlpred.false_positive_rate(actual_labels, model_pred_labels))
+    print(ndmlpred.false_positive_rate(actual_labels, thresh_mpl))
 
 
 def plot(test_ds):
