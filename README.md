@@ -1,9 +1,10 @@
 # CMS Track-Trigger ML
 **Machine learning studies for the CMS track-trigger project.**
 
-Info on the CMS TrackTrigger can be found [here](https://arxiv.org/abs/1705.04321).
+Info on the CMS track-trigger itself can be found in [this paper](https://arxiv.org/abs/1705.04321).
+Info about the track-trigger algorithm can be found in [these slides](https://wiki.classe.cornell.edu/pub/People/AndersRyd/170629_Tracklet_AWLC.pdf).
 Info on CMS as a whole can be found [here](https://home.cern/science/experiments/cms).
-Below is a brief summary of how machine learning could be used in the track-trigger.
+Below is a brief summary of how machine learning might be used in the track-trigger.
 
 
 ## A brief summary of this brief summary
